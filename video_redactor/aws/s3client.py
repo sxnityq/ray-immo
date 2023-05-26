@@ -38,11 +38,22 @@ class S3Client:
                 Filename=f"{os.environ['WORK_DIRECTORY']}/tmp/{file.split('/')[-1]}"
                 )
             
-    def upload_output(self, key, file):
-        #implement me
-        self.s3_client.upload_file(file, self.bucket, key)
+    def upload_output(self):
+        if not os.path.exists(f"{os.environ['WORK_DIRECTORY']}/output"):
+            raise FileExistsError("Can't get output dir to deploy. Check it's existense")
+        self.s3_client.put_object(
+            Bucket=self.bucket,
+            Key="output/",
+            Body=""
+        )
+        for file in os.listdir(f"{os.environ['WORK_DIRECTORY']}/output"):
+            self.s3_client.upload_file(
+                f"{os.environ['WORK_DIRECTORY']}/output/{file}",
+                self.bucket,
+                f"output/{file}")
 
 __all__ = ("S3Client", )
 
 if __name__ == "__main__":
     client = S3Client(bucket="ray-first", region="us-east-2")
+    client.upload_output()
