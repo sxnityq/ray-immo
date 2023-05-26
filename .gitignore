@@ -3,3 +3,4 @@ venv/
 tests/
 tmp/
 output/
+__pycache__/

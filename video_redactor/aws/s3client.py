@@ -38,7 +38,7 @@ class S3Client:
                 Filename=f"{os.environ['WORK_DIRECTORY']}/tmp/{file.split('/')[-1]}"
                 )
             
-    def upload_file(self, key, file):
+    def upload_output(self, key, file):
         #implement me
         self.s3_client.upload_file(file, self.bucket, key)
 

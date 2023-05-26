@@ -5,6 +5,7 @@ from video_redactor.video_processor import VideoProcessor
 from video_redactor.aws import S3Client
 from tqdm import tqdm
 
+
 load_dotenv()
 
 
