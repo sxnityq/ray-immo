@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
 class S3Client:
     def __init__(self, bucket: str="ray-first", region: str="us-east-2"):
         session = boto3.Session(
