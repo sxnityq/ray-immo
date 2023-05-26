@@ -1,10 +1,11 @@
 from time import time
-
+import ray
 from video_redactor.aws import S3Client
 from video_redactor.video_controller import VideoController
 
 if __name__ == "__main__":
     client = S3Client(bucket="ray-first", region="us-east-2")
+    ray.init()
 
     start = time()
 
@@ -15,5 +16,5 @@ if __name__ == "__main__":
     controller = VideoController()
     controller.process_videos(client)
 
-    end = time() - start
-    print(end)
+    print(time() - start)
+    ray.shutdown()

@@ -3,9 +3,6 @@ from video_redactor.video_processor import VideoProcessor
 
 
 class VideoController:
-    def __init__(self):
-        ray.init()
-
     def process_videos(self, client):
         client.download_files()
 
@@ -17,8 +14,3 @@ class VideoController:
 
         ray.get(futures)
         client.upload_output()
-
-        self.shutdown()
-
-    def shutdown(self):
-        ray.shutdown()
