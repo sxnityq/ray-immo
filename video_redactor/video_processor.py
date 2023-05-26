@@ -4,39 +4,21 @@ import ray
 from dotenv import load_dotenv
 import numpy as np
 
+
 load_dotenv()
 project_dir = os.environ["WORK_DIRECTORY"]
 
 
 @ray.remote
 class VideoProcessor:
+    
     def __init__(self, video):
+        """pass relative path to video in tmp folder otherwise cause implicit errors"""
         self.video = video
-        self.output = f"{project_dir}/output/{self.video}"
-
-    @staticmethod
-    def _draw_grid(frame, grid_shape=(25, 25), color=(0, 255, 0), thickness=1) -> None:
-        h, w, _ = frame.shape
-        rows, cols = grid_shape
-        dy, dx = h / rows, w / cols
-
-        for x in np.linspace(start=dx, stop=w - dx, num=cols - 1):
-            x = int(round(x))
-            cv2.line(frame, (x, 0), (x, h), color=color, thickness=thickness)
-
-        for y in np.linspace(start=dy, stop=h - dy, num=rows - 1):
-            y = int(round(y))
-            cv2.line(frame, (0, y), (w, y), color=color, thickness=thickness)
+        self.output_video = f"{project_dir}/output/{self.video}"
 
     def process_video(self):
-        # os.makedirs(
-        #     name=f"{project_dir}/output",
-        #     mode=511,
-        #     exist_ok=True)
-        # if os.path.exists(f"{project_dir}/tests/resources/{self.video}"):
-        #     cap = cv2.VideoCapture(f"{project_dir}/tmp/{self.video}")
-        # else:
-        #     raise FileExistsError(f"{self.video} does not exist. Check tmp folder for details")
+        
         cap = cv2.VideoCapture(f"{project_dir}/tmp/{self.video}")
         fps = cap.get(cv2.CAP_PROP_FPS)
         frames = cap.get(cv2.CAP_PROP_FRAME_COUNT)
@@ -50,10 +32,10 @@ class VideoProcessor:
         print(f"frames: {frames}")
 
         output_video = cv2.VideoWriter(
-            self.output,
-            cv2.VideoWriter_fourcc(*'mp4v'),
-            fps,
-            (video_width, video_height))
+            filename=self.output_video,
+            fourcc=cv2.VideoWriter_fourcc(*'mp4v'),
+            fps=fps,
+            frameSize=(video_width, video_height))
 
         while cap.isOpened():
             ret, frame = cap.read()
@@ -67,10 +49,10 @@ class VideoProcessor:
         print(f"finish processing: {self.video}")
 
     def make_gray(self):
+        
         video = cv2.VideoCapture(self.video)
-
         output_video = cv2.VideoWriter(
-            self.output,
+            self.output_video,
             cv2.VideoWriter_fourcc(*'mp4v'),
             int(video.get(cv2.CAP_PROP_FPS)),
             (int(video.get(cv2.CAP_PROP_FRAME_WIDTH)),
@@ -86,3 +68,17 @@ class VideoProcessor:
 
         video.release()
         output_video.release()
+        
+    @staticmethod
+    def _draw_grid(frame, grid_shape=(25, 25), color=(0, 255, 0), thickness=1) -> None:
+        h, w, _ = frame.shape
+        rows, cols = grid_shape
+        dy, dx = h / rows, w / cols
+
+        for x in np.linspace(start=dx, stop=w - dx, num=cols - 1):
+            x = int(round(x))
+            cv2.line(frame, (x, 0), (x, h), color=color, thickness=thickness)
+
+        for y in np.linspace(start=dy, stop=h - dy, num=rows - 1):
+            y = int(round(y))
+            cv2.line(frame, (0, y), (w, y), color=color, thickness=thickness)

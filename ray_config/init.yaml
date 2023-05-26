@@ -1,0 +1,32 @@
+#implement me
+
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: FirstKuber
+  region: us-east-1
+  tags: {sxnity: kuber}
+
+vpc:
+  id: "vpc-0aa9e56992015d035"
+  subnets:
+    public:
+      us-east-1a: {id: subnet-02b4b3d46fa94d688}
+      us-east-1b: {id: subnet-090733c9a63959527}
+
+nodeGroups:
+  - name: worker-1
+    amiFamily: Ubuntu2004
+    instanceType: t2.micro
+    minSize: 1
+    maxSize: 2
+    volumeSize: 20
+    desiredCapacity: 1 
+  - name: worker-2
+    amiFamily: Ubuntu2004
+    instanceType: t2.micro
+    minSize: 1
+    maxSize: 2
+    volumeSize: 20
+    desiredCapacity: 1

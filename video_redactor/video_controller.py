@@ -1,8 +1,15 @@
-import ray
-from video_redactor.video_processor import VideoProcessor
+import os
 
+from dotenv import load_dotenv
+import ray
+
+from .video_processor import VideoProcessor
+
+#load_dotenv()
+#project_dir = os.environ["WORK_DIRECTORY"]
 
 class VideoController:
+    
     def process_videos(self, client):
         client.download_files()
 
