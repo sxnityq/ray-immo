@@ -1,5 +1,78 @@
 #implement me
 
+cluster_name: immo-ray
+max_workers: 2
+upscaling_speed: 0.0
+idle_timeout_minutes: 5
+docker:
+  docker
+provider:
+  type: aws
+  region: us-east-1
+  availability_zone: us-east-1a,us-east-1b,us-east-1c
+  cache_stopped_nodes: False
+  security_group:
+    GroupName: inbound-all-ports
+auth:
+  ssh_user: sxnity
+  ssh_private_key: /home/sxnity/Downloads/urban-sadness.pem
+available_node_types:
+  ray.head:
+    node_type:
+      node_config:
+        InstanceType: t2.micro
+        KeyName: /home/sxnity/Downloads/urban-sadness.pem
+        MixCount: 1
+        MaxCount: 2
+        BlockDeviceMappings:
+          - DeviceName: /dev/sda1
+            Ebs:
+              VolumeSize: 30
+              DeleteOnTermination: True
+    resources:
+      CPU: 1
+    min_workers: 1
+    max_workers: 1
+  ray.worker1:
+    node_type:
+      node_config:
+        InstanceType: t2.micro
+        KeyName: /home/sxnity/Downloads/urban-sadness.pem
+        MixCount: 1
+        MaxCount: 2
+        BlockDeviceMappings:
+          - DeviceName: /dev/sda1
+            Ebs:
+              VolumeSize: 30
+              DeleteOnTermination: True
+    resources:
+      CPU: 1
+    min_workers: 1
+    max_workers: 1
+head_node_type: ray.head
+
+#implement mw
+file_mounts:
+    file_mounts
+cluster_synced_files:
+    - str
+rsync_exclude:
+    - str
+rsync_filter:
+    - str
+initialization_commands:
+    - str
+setup_commands:
+    - str
+head_setup_commands:
+    - str
+worker_setup_commands:
+    - str
+head_start_ray_commands:
+    - str
+worker_start_ray_commands:
+    - str
+
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
