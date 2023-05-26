@@ -1,6 +1,8 @@
 import os
 
+import cap as cap
 import cv2
+import ray
 from dotenv import load_dotenv
 import numpy as np
 
@@ -9,22 +11,20 @@ load_dotenv()
 
 
 class VideoProcessor:
-    
-    def __init__(self, video):
-        
-        self.video = video
-    
-    def process_video(self):
+    def __init__(self):
+        ray.init()
+
+
+    @ray.remote
+    def process_video(self, output):
         os.makedirs(
             name=f"{os.environ['WORK_DIRECTORY']}/output",
             mode=511,
             exist_ok=True)
-
-        if os.path.exists(f"{os.environ['WORK_DIRECTORY']}/tmp/{self.video}"): 
+        if os.path.exists(f"{os.environ['WORK_DIRECTORY']}/tmp/{self.video}"):
             cap = cv2.VideoCapture(f"{os.environ['WORK_DIRECTORY']}/tmp/{self.video}")
         else:
             raise FileExistsError(f"{self.video} does not exist. Check tmp folder for details")
-
         fps = cap.get(cv2.CAP_PROP_FPS)
         frames = cap.get(cv2.CAP_PROP_FRAME_COUNT)
         video_height = round(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
@@ -67,3 +67,26 @@ class VideoProcessor:
         for y in np.linspace(start=dy, stop=h - dy, num=rows - 1):
             y = int(round(y))
             cv2.line(frame, (0, y), (w, y), color=color, thickness=thickness)
+
+    @ray.remote
+    def make_gray(self, input_path, output):
+        video = cv2.VideoCapture(input_path)
+
+        output_video = cv2.VideoWriter(
+            output,
+            cv2.VideoWriter_fourcc(*'mp4v'),
+            int(video.get(cv2.CAP_PROP_FPS)),
+            (int(video.get(cv2.CAP_PROP_FRAME_WIDTH)),
+             int(video.get(cv2.CAP_PROP_FRAME_HEIGHT))),
+            isColor=False)
+
+        while True:
+            ret, frame = video.read()
+            if not ret:
+                break
+            gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            output_video.write(gray_frame)
+
+        video.release()
+        output_video.release()
+
