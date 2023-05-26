@@ -1,6 +1,5 @@
 import os
 
-import cap as cap
 import cv2
 import ray
 from dotenv import load_dotenv
@@ -9,14 +8,12 @@ import numpy as np
 
 load_dotenv()
 
-
+@ray.remote
 class VideoProcessor:
-    def __init__(self):
-        ray.init()
+    def __init__(self, video):
+        self.video = video
 
-
-    @ray.remote
-    def process_video(self, output):
+    def process_video(self):
         os.makedirs(
             name=f"{os.environ['WORK_DIRECTORY']}/output",
             mode=511,
@@ -68,7 +65,6 @@ class VideoProcessor:
             y = int(round(y))
             cv2.line(frame, (0, y), (w, y), color=color, thickness=thickness)
 
-    @ray.remote
     def make_gray(self, input_path, output):
         video = cv2.VideoCapture(input_path)
 
