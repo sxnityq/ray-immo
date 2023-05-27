@@ -1,11 +1,9 @@
-#implement me
-
 cluster_name: immo-ray
 max_workers: 2
 upscaling_speed: 0.0
 idle_timeout_minutes: 5
-docker:
-  docker
+#docker:
+#  docker
 provider:
   type: aws
   region: us-east-1
@@ -14,94 +12,37 @@ provider:
   security_group:
     GroupName: inbound-all-ports
 auth:
-  ssh_user: sxnity
+  ssh_user: ubuntu
   ssh_private_key: /home/sxnity/Downloads/urban-sadness.pem
 available_node_types:
   ray.head:
-    node_type:
-      node_config:
-        InstanceType: t2.micro
-        KeyName: /home/sxnity/Downloads/urban-sadness.pem
-        MixCount: 1
-        MaxCount: 2
-        BlockDeviceMappings:
-          - DeviceName: /dev/sda1
-            Ebs:
-              VolumeSize: 30
-              DeleteOnTermination: True
+    node_config:
+      InstanceType: c5.large
+      KeyName: urban-sadness
+      MinCount: 1
+      MaxCount: 2
+      BlockDeviceMappings:
+        - DeviceName: /dev/sda1
+          Ebs:
+            VolumeSize: 140
+            DeleteOnTermination: True
     resources:
-      CPU: 1
+      CPU: 3
     min_workers: 1
     max_workers: 1
   ray.worker1:
-    node_type:
-      node_config:
-        InstanceType: t2.micro
-        KeyName: /home/sxnity/Downloads/urban-sadness.pem
-        MixCount: 1
-        MaxCount: 2
-        BlockDeviceMappings:
-          - DeviceName: /dev/sda1
-            Ebs:
-              VolumeSize: 30
-              DeleteOnTermination: True
+    node_config:
+      InstanceType: c5.large
+      KeyName: urban-sadness
+      MinCount: 1
+      MaxCount: 2
+      BlockDeviceMappings:
+        - DeviceName: /dev/sda1
+          Ebs:
+            VolumeSize: 140
+            DeleteOnTermination: True
     resources:
-      CPU: 1
+      CPU: 3
     min_workers: 1
     max_workers: 1
 head_node_type: ray.head
-
-#implement me
-file_mounts:
-    file_mounts
-cluster_synced_files:
-    - str
-rsync_exclude:
-    - str
-rsync_filter:
-    - str
-initialization_commands:
-    - str
-setup_commands:
-    - str
-head_setup_commands:
-    - str
-worker_setup_commands:
-    - str
-head_start_ray_commands:
-    - str
-worker_start_ray_commands:
-    - str
-
----
-#eksctl config 
-apiVersion: eksctl.io/v1alpha5
-kind: ClusterConfig
-
-metadata:
-  name: FirstKuber
-  region: us-east-1
-  tags: {sxnity: kuber}
-
-vpc:
-  id: "vpc-0aa9e56992015d035"
-  subnets:
-    public:
-      us-east-1a: {id: subnet-02b4b3d46fa94d688}
-      us-east-1b: {id: subnet-090733c9a63959527}
-
-nodeGroups:
-  - name: worker-1
-    amiFamily: Ubuntu2004
-    instanceType: t2.micro
-    minSize: 1
-    maxSize: 2
-    volumeSize: 20
-    desiredCapacity: 1 
-  - name: worker-2
-    amiFamily: Ubuntu2004
-    instanceType: t2.micro
-    minSize: 1
-    maxSize: 2
-    volumeSize: 20
-    desiredCapacity: 1

@@ -14,7 +14,7 @@ class VideoProcessor:
     
     def __init__(self, video):
         """pass relative path to video in tmp folder otherwise cause implicit errors"""
-        if not os.path.exists(f"{project_dir}/tmp/{self.video}"):
+        if not os.path.exists(f"{project_dir}/tmp/{video}"):
             raise FileExistsError(f"{video} does not exist in tmp folder. Check it for more details")
         self.video = video
         self.output_video = f"{project_dir}/output/{self.video}"
