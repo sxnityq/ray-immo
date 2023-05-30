@@ -11,7 +11,7 @@ apt-get install libcudnn8=8.9.1.23-1+12.1
 apt-get install libcudnn8-dev=8.9.1.23-1+12.1
 apt-get install libcudnn8-samples=8.9.1.23-1+12.1
 
-cp -r /usr/src/cudnn_samples_v8/ $HOME
-cd  $HOME/cudnn_samples_v8/mnistCUDNN
-make clean && make
-./mnistCUDNN
+#cp -r /usr/src/cudnn_samples_v8/ $HOME
+#cd  $HOME/cudnn_samples_v8/mnistCUDNN
+#make clean && make
+#./mnistCUDNN
