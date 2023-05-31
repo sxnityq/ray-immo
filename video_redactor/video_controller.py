@@ -14,9 +14,6 @@ class VideoController:
 
         futures = []
 
-        # prcess = VideoProcessor()
-        # futures.append(prcess.small_ml().remote())
-
         for file in os.listdir(f"{project_dir}/tmp"):
             if not os.path.exists(f"{project_dir}/tmp/{file}"):
                 raise FileExistsError(f"{file} does not exist in tmp folder. Check it for more details")
@@ -27,4 +24,4 @@ class VideoController:
                 futures.append(processor.stabilize_video.remote())
 
         ray.get(futures)
-        #client.upload_output()
+        client.upload_output()
