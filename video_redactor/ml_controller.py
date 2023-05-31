@@ -3,9 +3,6 @@ from dotenv import load_dotenv
 import ray
 from video_redactor.small_ml import Small_ML
 
-load_dotenv()
-project_dir = os.environ["WORK_DIRECTORY"]
-
 
 class MLController:
     def __init__(self):
@@ -13,8 +10,8 @@ class MLController:
 
     def process_ml(self):
         futures = []
-        ml = Small_ML()
+        ml = Small_ML.remote()
         for _ in range(2):
-            futures.append(ml.small_ml().remote())
+            futures.append(ml.process.remote())
 
         ray.get(futures)

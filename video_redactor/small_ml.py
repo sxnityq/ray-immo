@@ -2,6 +2,7 @@ import tensorflow as tf
 from tensorflow.keras import layers, models
 import tensorflow_datasets as tfds
 import time
+import ray
 
 
 @ray.remote
