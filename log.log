@@ -1,0 +1,769 @@
+e=yes -o ServerAliveInterval=5 -o ServerAliveCountMax=3 -o ControlMaster=auto -o ControlPath=/tmp/ray_ssh_1d41c853af/3fba465611/%C -o ControlPersist=10s -o ConnectTimeout=10s ubuntu@172.31.94.118 bash --login -c -i 'source ~/.bashrc; export OMP_NUM_THREADS=1 PYTHONWARNINGS=ignore && (uptime)'`
+2023-06-01 05:56:03,441 INFO updater.py:381 -- New status: syncing-files
+2023-06-01 05:56:03,447 INFO updater.py:238 -- [2/7] Processing file mounts
+2023-06-01 05:56:03,447 INFO updater.py:255 -- [3/7] No worker file mounts to sync
+2023-06-01 05:56:04,545 INFO log_timer.py:25 -- AWSNodeProvider: Set tag ray-node-status=setting-up on ['i-00faee365a4752a0f']  [LogTimer=96ms]
+2023-06-01 05:56:04,545 INFO updater.py:392 -- New status: setting-up
+2023-06-01 05:56:04,545 INFO updater.py:433 -- [4/7] No initialization commands to run.
+2023-06-01 05:56:04,546 INFO updater.py:437 -- [5/7] Initializing command runner
+2023-06-01 05:56:04,546 INFO updater.py:448 -- [6/7] Running setup commands
+2023-06-01 05:56:04,546 INFO updater.py:470 -- (0/2) RAY_HEAD_IP=172.31.94.122 (stat $HOME/anaconda3/envs/tensorflow2_p38/ &> /dev/null && echo 'export PATH="$HOME/anaconda3/envs/tensorflow2_p38/bin:$PATH"' >> ~/.bashrc) || true
+2023-06-01 05:56:04,546 VINFO command_runner.py:371 -- Running `RAY_HEAD_IP=172.31.94.122 (stat $HOME/anaconda3/envs/tensorflow2_p38/ &> /dev/null && echo 'export PATH="$HOME/anaconda3/envs/tensorflow2_p38/bin:$PATH"' >> ~/.bashrc) || true`
+2023-06-01 05:56:04,546 VVINFO command_runner.py:373 -- Full command is `ssh -tt -i ~/ray_bootstrap_key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -o ExitOnForwardFailure=yes -o ServerAliveInterval=5 -o ServerAliveCountMax=3 -o ControlMaster=auto -o ControlPath=/tmp/ray_ssh_1d41c853af/3fba465611/%C -o ControlPersist=10s -o ConnectTimeout=120s ubuntu@172.31.88.227 bash --login -c -i 'source ~/.bashrc; export OMP_NUM_THREADS=1 PYTHONWARNINGS=ignore && (RAY_HEAD_IP=172.31.94.122 (stat $HOME/anaconda3/envs/tensorflow2_p38/ &> /dev/null && echo '"'"'export PATH="$HOME/anaconda3/envs/tensorflow2_p38/bin:$PATH"'"'"' >> ~/.bashrc) || true)'`
+bash: syntax error near unexpected token `('
+2023-06-01 05:56:04,942 INFO log_timer.py:25 -- NodeUpdater: i-00faee365a4752a0f: Setup commands failed [LogTimer=396ms]
+2023-06-01 05:56:04,942 INFO log_timer.py:25 -- NodeUpdater: i-00faee365a4752a0f: Applied config 8026a93c17c943d1d822503536cafcaad5218bb0  [LogTimer=63829ms]
+2023-06-01 05:56:06,118 INFO log_timer.py:25 -- AWSNodeProvider: Set tag ray-node-status=update-failed on ['i-00faee365a4752a0f']  [LogTimer=174ms]
+2023-06-01 05:56:06,118 ERR updater.py:158 -- New status: update-failed
+2023-06-01 05:56:06,118 ERR updater.py:160 -- !!!
+2023-06-01 05:56:06,118 VERR updater.py:168 -- {'message': 'SSH command failed.'}
+2023-06-01 05:56:06,118 ERR updater.py:170 -- SSH command failed.
+2023-06-01 05:56:06,118 ERR updater.py:172 -- !!!
+ 05:56:08 up 0 min,  1 user,  load average: 3.13, 0.71, 0.23
+2023-06-01 05:56:08,759 SUCC updater.py:280 -- Success.
+2023-06-01 05:56:08,759 INFO log_timer.py:25 -- NodeUpdater: i-07d1754232c6cb8ec: Got remote shell  [LogTimer=66423ms]
+2023-06-01 05:56:08,760 INFO updater.py:374 -- Updating cluster configuration. [hash=8026a93c17c943d1d822503536cafcaad5218bb0]
+2023-06-01 05:56:09,762 INFO node_provider.py:429 -- Launched 1 nodes [subnet_id=subnet-02b4b3d46fa94d688]
+2023-06-01 05:56:09,763 INFO node_provider.py:443 -- Launched instance i-0fe4a7398c4ae93ba [state=pending, info=pending]
+2023-06-01 05:56:09,881 INFO log_timer.py:25 -- AWSNodeProvider: Set tag ray-node-status=syncing-files on ['i-07d1754232c6cb8ec']  [LogTimer=119ms]
+2023-06-01 05:56:09,881 INFO updater.py:381 -- New status: syncing-files
+2023-06-01 05:56:09,881 INFO updater.py:238 -- [2/7] Processing file mounts
+2023-06-01 05:56:09,881 INFO updater.py:255 -- [3/7] No worker file mounts to sync
+2023-06-01 05:56:10,975 INFO log_timer.py:25 -- AWSNodeProvider: Set tag ray-node-status=setting-up on ['i-07d1754232c6cb8ec']  [LogTimer=93ms]
+2023-06-01 05:56:10,976 INFO updater.py:392 -- New status: setting-up
+2023-06-01 05:56:10,976 INFO updater.py:433 -- [4/7] No initialization commands to run.
+2023-06-01 05:56:10,976 INFO updater.py:437 -- [5/7] Initializing command runner
+2023-06-01 05:56:10,976 INFO updater.py:448 -- [6/7] Running setup commands
+2023-06-01 05:56:10,976 INFO updater.py:470 -- (0/2) RAY_HEAD_IP=172.31.94.122 (stat $HOME/anaconda3/envs/tensorflow2_p38/ &> /dev/null && echo 'export PATH="$HOME/anaconda3/envs/tensorflow2_p38/bin:$PATH"' >> ~/.bashrc) || true
+2023-06-01 05:56:10,976 VINFO command_runner.py:371 -- Running `RAY_HEAD_IP=172.31.94.122 (stat $HOME/anaconda3/envs/tensorflow2_p38/ &> /dev/null && echo 'export PATH="$HOME/anaconda3/envs/tensorflow2_p38/bin:$PATH"' >> ~/.bashrc) || true`
+2023-06-01 05:56:10,976 VVINFO command_runner.py:373 -- Full command is `ssh -tt -i ~/ray_bootstrap_key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -o ExitOnForwardFailure=yes -o ServerAliveInterval=5 -o ServerAliveCountMax=3 -o ControlMaster=auto -o ControlPath=/tmp/ray_ssh_1d41c853af/3fba465611/%C -o ControlPersist=10s -o ConnectTimeout=120s ubuntu@172.31.88.230 bash --login -c -i 'source ~/.bashrc; export OMP_NUM_THREADS=1 PYTHONWARNINGS=ignore && (RAY_HEAD_IP=172.31.94.122 (stat $HOME/anaconda3/envs/tensorflow2_p38/ &> /dev/null && echo '"'"'export PATH="$HOME/anaconda3/envs/tensorflow2_p38/bin:$PATH"'"'"' >> ~/.bashrc) || true)'`
+bash: syntax error near unexpected token `('
+2023-06-01 05:56:11,616 INFO log_timer.py:25 -- NodeUpdater: i-07d1754232c6cb8ec: Setup commands failed [LogTimer=640ms]
+2023-06-01 05:56:11,617 INFO log_timer.py:25 -- NodeUpdater: i-07d1754232c6cb8ec: Applied config 8026a93c17c943d1d822503536cafcaad5218bb0  [LogTimer=70500ms]
+2023-06-01 05:56:12,709 INFO log_timer.py:25 -- AWSNodeProvider: Set tag ray-node-status=update-failed on ['i-07d1754232c6cb8ec']  [LogTimer=91ms]
+2023-06-01 05:56:12,709 ERR updater.py:158 -- New status: update-failed
+2023-06-01 05:56:12,709 ERR updater.py:160 -- !!!
+2023-06-01 05:56:12,709 VERR updater.py:168 -- {'message': 'SSH command failed.'}
+2023-06-01 05:56:12,709 ERR updater.py:170 -- SSH command failed.
+2023-06-01 05:56:12,709 ERR updater.py:172 -- !!!
+2023-06-01 05:56:13,469 INFO updater.py:312 -- SSH still not available (SSH command failed.), retrying in 5 seconds.
+2023-06-01 05:56:14,911 INFO log_timer.py:25 -- AWSNodeProvider: Set tag ray-node-status=waiting-for-ssh on ['i-0fe4a7398c4ae93ba']  [LogTimer=124ms]
+2023-06-01 05:56:14,911 INFO updater.py:324 -- New status: waiting-for-ssh
+2023-06-01 05:56:14,911 INFO updater.py:261 -- [1/7] Waiting for SSH to become available
+2023-06-01 05:56:14,911 INFO updater.py:266 -- Running `uptime` as a test.
+2023-06-01 05:56:14,911 INFO command_runner.py:204 -- Fetched IP: 172.31.94.170
+2023-06-01 05:56:14,911 INFO log_timer.py:25 -- NodeUpdater: i-0fe4a7398c4ae93ba: Got IP  [LogTimer=0ms]
+2023-06-01 05:56:14,912 VINFO command_runner.py:371 -- Running `uptime`
+2023-06-01 05:56:14,912 VVINFO command_runner.py:373 -- Full command is `ssh -tt -i ~/ray_bootstrap_key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -o ExitOnForwardFailure=yes -o ServerAliveInterval=5 -o ServerAliveCountMax=3 -o ControlMaster=auto -o ControlPath=/tmp/ray_ssh_1d41c853af/3fba465611/%C -o ControlPersist=10s -o ConnectTimeout=10s ubuntu@172.31.94.170 bash --login -c -i 'source ~/.bashrc; export OMP_NUM_THREADS=1 PYTHONWARNINGS=ignore && (uptime)'`
+2023-06-01 05:56:15,075 INFO node_provider.py:429 -- Launched 1 nodes [subnet_id=subnet-02b4b3d46fa94d688]
+2023-06-01 05:56:15,075 INFO node_provider.py:443 -- Launched instance i-032cf39286f6b9137 [state=pending, info=pending]
+2023-06-01 05:56:18,473 VINFO command_runner.py:371 -- Running `uptime`
+2023-06-01 05:56:18,473 VVINFO command_runner.py:373 -- Full command is `ssh -tt -i ~/ray_bootstrap_key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -o ExitOnForwardFailure=yes -o ServerAliveInterval=5 -o ServerAliveCountMax=3 -o ControlMaster=auto -o ControlPath=/tmp/ray_ssh_1d41c853af/3fba465611/%C -o ControlPersist=10s -o ConnectTimeout=10s ubuntu@172.31.94.118 bash --login -c -i 'source ~/.bashrc; export OMP_NUM_THREADS=1 PYTHONWARNINGS=ignore && (uptime)'`
+2023-06-01 05:56:20,113 INFO log_timer.py:25 -- AWSNodeProvider: Set tag ray-node-status=waiting-for-ssh on ['i-032cf39286f6b9137']  [LogTimer=124ms]
+2023-06-01 05:56:20,114 INFO updater.py:324 -- New status: waiting-for-ssh
+2023-06-01 05:56:20,114 INFO updater.py:261 -- [1/7] Waiting for SSH to become available
+2023-06-01 05:56:20,114 INFO updater.py:266 -- Running `uptime` as a test.
+2023-06-01 05:56:20,114 INFO command_runner.py:204 -- Fetched IP: 172.31.80.251
+2023-06-01 05:56:20,114 INFO log_timer.py:25 -- NodeUpdater: i-032cf39286f6b9137: Got IP  [LogTimer=0ms]
+2023-06-01 05:56:20,114 VINFO command_runner.py:371 -- Running `uptime`
+2023-06-01 05:56:20,114 VVINFO command_runner.py:373 -- Full command is `ssh -tt -i ~/ray_bootstrap_key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -o ExitOnForwardFailure=yes -o ServerAliveInterval=5 -o ServerAliveCountMax=3 -o ControlMaster=auto -o ControlPath=/tmp/ray_ssh_1d41c853af/3fba465611/%C -o ControlPersist=10s -o ConnectTimeout=10s ubuntu@172.31.80.251 bash --login -c -i 'source ~/.bashrc; export OMP_NUM_THREADS=1 PYTHONWARNINGS=ignore && (uptime)'`
+2023-06-01 05:56:24,933 INFO updater.py:312 -- SSH still not available (SSH command failed.), retrying in 5 seconds.
+2023-06-01 05:56:28,495 INFO updater.py:312 -- SSH still not available (SSH command failed.), retrying in 5 seconds.
+2023-06-01 05:56:29,937 VINFO command_runner.py:371 -- Running `uptime`
+2023-06-01 05:56:29,937 VVINFO command_runner.py:373 -- Full command is `ssh -tt -i ~/ray_bootstrap_key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -o ExitOnForwardFailure=yes -o ServerAliveInterval=5 -o ServerAliveCountMax=3 -o ControlMaster=auto -o ControlPath=/tmp/ray_ssh_1d41c853af/3fba465611/%C -o ControlPersist=10s -o ConnectTimeout=10s ubuntu@172.31.94.170 bash --login -c -i 'source ~/.bashrc; export OMP_NUM_THREADS=1 PYTHONWARNINGS=ignore && (uptime)'`
+2023-06-01 05:56:30,143 INFO updater.py:312 -- SSH still not available (SSH command failed.), retrying in 5 seconds.
+2023-06-01 05:56:33,497 VINFO command_runner.py:371 -- Running `uptime`
+2023-06-01 05:56:33,497 VVINFO command_runner.py:373 -- Full command is `ssh -tt -i ~/ray_bootstrap_key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -o ExitOnForwardFailure=yes -o ServerAliveInterval=5 -o ServerAliveCountMax=3 -o ControlMaster=auto -o ControlPath=/tmp/ray_ssh_1d41c853af/3fba465611/%C -o ControlPersist=10s -o ConnectTimeout=10s ubuntu@172.31.94.118 bash --login -c -i 'source ~/.bashrc; export OMP_NUM_THREADS=1 PYTHONWARNINGS=ignore && (uptime)'`
+
+==> /tmp/ray/session_latest/logs/monitor.err <==
+ssh: connect to host 172.31.94.118 port 22: Connection refused
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+2023-06-01 05:56:33,514 INFO updater.py:312 -- SSH still not available (SSH command failed.), retrying in 5 seconds.
+
+==> /tmp/ray/session_latest/logs/monitor.log <==
+2023-06-01 05:56:34,448 INFO autoscaler.py:147 -- The autoscaler took 0.071 seconds to fetch the list of non-terminated nodes.
+2023-06-01 05:56:34,453 INFO autoscaler.py:427 -- 
+======== Autoscaler status: 2023-06-01 05:56:34.453690 ========
+Node status
+---------------------------------------------------------------
+Healthy:
+ 1 ray.head
+Pending:
+ 172.31.94.118: ray.workerCPU, waiting-for-ssh
+ 172.31.80.251: ray.workerGPU, waiting-for-ssh
+ 172.31.94.170: ray.head, waiting-for-ssh
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Usage:
+ 0.0/1.0 CPU
+ 0B/247.01MiB memory
+ 0B/123.50MiB object_store_memory
+
+Demands:
+ (no resource demands)
+2023-06-01 05:56:34,455 INFO autoscaler.py:470 -- The autoscaler took 0.078 seconds to complete the update iteration.
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+2023-06-01 05:56:35,146 VINFO command_runner.py:371 -- Running `uptime`
+2023-06-01 05:56:35,147 VVINFO command_runner.py:373 -- Full command is `ssh -tt -i ~/ray_bootstrap_key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -o ExitOnForwardFailure=yes -o ServerAliveInterval=5 -o ServerAliveCountMax=3 -o ControlMaster=auto -o ControlPath=/tmp/ray_ssh_1d41c853af/3fba465611/%C -o ControlPersist=10s -o ConnectTimeout=10s ubuntu@172.31.80.251 bash --login -c -i 'source ~/.bashrc; export OMP_NUM_THREADS=1 PYTHONWARNINGS=ignore && (uptime)'`
+2023-06-01 05:56:38,519 VINFO command_runner.py:371 -- Running `uptime`
+2023-06-01 05:56:38,519 VVINFO command_runner.py:373 -- Full command is `ssh -tt -i ~/ray_bootstrap_key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -o ExitOnForwardFailure=yes -o ServerAliveInterval=5 -o ServerAliveCountMax=3 -o ControlMaster=auto -o ControlPath=/tmp/ray_ssh_1d41c853af/3fba465611/%C -o ControlPersist=10s -o ConnectTimeout=10s ubuntu@172.31.94.118 bash --login -c -i 'source ~/.bashrc; export OMP_NUM_THREADS=1 PYTHONWARNINGS=ignore && (uptime)'`
+
+==> /tmp/ray/session_latest/logs/monitor.err <==
+Warning: Permanently added '172.31.94.118' (ECDSA) to the list of known hosts.
+
+==> /tmp/ray/session_latest/logs/monitor.log <==
+2023-06-01 05:56:39,628 INFO autoscaler.py:147 -- The autoscaler took 0.138 seconds to fetch the list of non-terminated nodes.
+2023-06-01 05:56:39,633 INFO autoscaler.py:427 -- 
+======== Autoscaler status: 2023-06-01 05:56:39.633671 ========
+Node status
+---------------------------------------------------------------
+Healthy:
+ 1 ray.head
+Pending:
+ 172.31.94.118: ray.workerCPU, waiting-for-ssh
+ 172.31.80.251: ray.workerGPU, waiting-for-ssh
+ 172.31.94.170: ray.head, waiting-for-ssh
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Usage:
+ 0.0/1.0 CPU
+ 0B/247.01MiB memory
+ 0B/123.50MiB object_store_memory
+
+Demands:
+ (no resource demands)
+2023-06-01 05:56:39,638 INFO autoscaler.py:470 -- The autoscaler took 0.148 seconds to complete the update iteration.
+
+==> /tmp/ray/session_latest/logs/monitor.err <==
+ssh: connect to host 172.31.94.170 port 22: Connection timed out
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+2023-06-01 05:56:39,976 INFO updater.py:312 -- SSH still not available (SSH command failed.), retrying in 5 seconds.
+
+==> /tmp/ray/session_latest/logs/monitor.log <==
+2023-06-01 05:56:44,790 INFO autoscaler.py:147 -- The autoscaler took 0.123 seconds to fetch the list of non-terminated nodes.
+2023-06-01 05:56:44,795 INFO autoscaler.py:427 -- 
+======== Autoscaler status: 2023-06-01 05:56:44.794933 ========
+Node status
+---------------------------------------------------------------
+Healthy:
+ 1 ray.head
+Pending:
+ 172.31.94.118: ray.workerCPU, waiting-for-ssh
+ 172.31.80.251: ray.workerGPU, waiting-for-ssh
+ 172.31.94.170: ray.head, waiting-for-ssh
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Usage:
+ 0.0/1.0 CPU
+ 0B/247.01MiB memory
+ 0B/123.50MiB object_store_memory
+
+Demands:
+ (no resource demands)
+2023-06-01 05:56:44,796 INFO autoscaler.py:470 -- The autoscaler took 0.129 seconds to complete the update iteration.
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+2023-06-01 05:56:44,981 VINFO command_runner.py:371 -- Running `uptime`
+2023-06-01 05:56:44,981 VVINFO command_runner.py:373 -- Full command is `ssh -tt -i ~/ray_bootstrap_key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -o ExitOnForwardFailure=yes -o ServerAliveInterval=5 -o ServerAliveCountMax=3 -o ControlMaster=auto -o ControlPath=/tmp/ray_ssh_1d41c853af/3fba465611/%C -o ControlPersist=10s -o ConnectTimeout=10s ubuntu@172.31.94.170 bash --login -c -i 'source ~/.bashrc; export OMP_NUM_THREADS=1 PYTHONWARNINGS=ignore && (uptime)'`
+
+==> /tmp/ray/session_latest/logs/monitor.err <==
+ssh: connect to host 172.31.80.251 port 22: Connection timed out
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+2023-06-01 05:56:45,170 INFO updater.py:312 -- SSH still not available (SSH command failed.), retrying in 5 seconds.
+ 05:56:47 up 0 min,  1 user,  load average: 1.90, 0.46, 0.15
+
+==> /tmp/ray/session_latest/logs/monitor.err <==
+Shared connection to 172.31.94.118 closed.
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+2023-06-01 05:56:47,562 SUCC updater.py:280 -- Success.
+2023-06-01 05:56:47,563 INFO log_timer.py:25 -- NodeUpdater: i-0da7c542647460400: Got remote shell  [LogTimer=44122ms]
+2023-06-01 05:56:47,563 INFO updater.py:374 -- Updating cluster configuration. [hash=8026a93c17c943d1d822503536cafcaad5218bb0]
+2023-06-01 05:56:48,657 INFO log_timer.py:25 -- AWSNodeProvider: Set tag ray-node-status=syncing-files on ['i-0da7c542647460400']  [LogTimer=93ms]
+2023-06-01 05:56:48,658 INFO updater.py:381 -- New status: syncing-files
+2023-06-01 05:56:48,658 INFO updater.py:238 -- [2/7] Processing file mounts
+2023-06-01 05:56:48,658 INFO updater.py:255 -- [3/7] No worker file mounts to sync
+2023-06-01 05:56:49,753 INFO log_timer.py:25 -- AWSNodeProvider: Set tag ray-node-status=setting-up on ['i-0da7c542647460400']  [LogTimer=93ms]
+2023-06-01 05:56:49,753 INFO updater.py:392 -- New status: setting-up
+2023-06-01 05:56:49,753 INFO updater.py:433 -- [4/7] No initialization commands to run.
+2023-06-01 05:56:49,754 INFO updater.py:437 -- [5/7] Initializing command runner
+2023-06-01 05:56:49,754 INFO updater.py:448 -- [6/7] Running setup commands
+2023-06-01 05:56:49,754 INFO updater.py:470 -- (0/2) RAY_HEAD_IP=172.31.94.122 (stat $HOME/anaconda3/envs/tensorflow2_p38/ &> /dev/null && echo 'export PATH="$HOME/anaconda3/envs/tensorflow2_p38/bin:$PATH"' >> ~/.bashrc) || true
+2023-06-01 05:56:49,755 VINFO command_runner.py:371 -- Running `RAY_HEAD_IP=172.31.94.122 (stat $HOME/anaconda3/envs/tensorflow2_p38/ &> /dev/null && echo 'export PATH="$HOME/anaconda3/envs/tensorflow2_p38/bin:$PATH"' >> ~/.bashrc) || true`
+2023-06-01 05:56:49,755 VVINFO command_runner.py:373 -- Full command is `ssh -tt -i ~/ray_bootstrap_key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -o ExitOnForwardFailure=yes -o ServerAliveInterval=5 -o ServerAliveCountMax=3 -o ControlMaster=auto -o ControlPath=/tmp/ray_ssh_1d41c853af/3fba465611/%C -o ControlPersist=10s -o ConnectTimeout=120s ubuntu@172.31.94.118 bash --login -c -i 'source ~/.bashrc; export OMP_NUM_THREADS=1 PYTHONWARNINGS=ignore && (RAY_HEAD_IP=172.31.94.122 (stat $HOME/anaconda3/envs/tensorflow2_p38/ &> /dev/null && echo '"'"'export PATH="$HOME/anaconda3/envs/tensorflow2_p38/bin:$PATH"'"'"' >> ~/.bashrc) || true)'`
+
+==> /tmp/ray/session_latest/logs/monitor.log <==
+2023-06-01 05:56:49,924 INFO autoscaler.py:147 -- The autoscaler took 0.087 seconds to fetch the list of non-terminated nodes.
+2023-06-01 05:56:49,927 INFO autoscaler.py:427 -- 
+======== Autoscaler status: 2023-06-01 05:56:49.927540 ========
+Node status
+---------------------------------------------------------------
+Healthy:
+ 1 ray.head
+Pending:
+ 172.31.94.118: ray.workerCPU, setting-up
+ 172.31.80.251: ray.workerGPU, waiting-for-ssh
+ 172.31.94.170: ray.head, waiting-for-ssh
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Usage:
+ 0.0/1.0 CPU
+ 0B/247.01MiB memory
+ 0B/123.50MiB object_store_memory
+
+Demands:
+ (no resource demands)
+2023-06-01 05:56:49,930 INFO autoscaler.py:470 -- The autoscaler took 0.092 seconds to complete the update iteration.
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+2023-06-01 05:56:50,173 VINFO command_runner.py:371 -- Running `uptime`
+2023-06-01 05:56:50,173 VVINFO command_runner.py:373 -- Full command is `ssh -tt -i ~/ray_bootstrap_key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -o ExitOnForwardFailure=yes -o ServerAliveInterval=5 -o ServerAliveCountMax=3 -o ControlMaster=auto -o ControlPath=/tmp/ray_ssh_1d41c853af/3fba465611/%C -o ControlPersist=10s -o ConnectTimeout=10s ubuntu@172.31.80.251 bash --login -c -i 'source ~/.bashrc; export OMP_NUM_THREADS=1 PYTHONWARNINGS=ignore && (uptime)'`
+bash: syntax error near unexpected token `('
+
+==> /tmp/ray/session_latest/logs/monitor.err <==
+Shared connection to 172.31.94.118 closed.
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+2023-06-01 05:56:50,268 INFO log_timer.py:25 -- NodeUpdater: i-0da7c542647460400: Setup commands failed [LogTimer=514ms]
+2023-06-01 05:56:50,269 INFO log_timer.py:25 -- NodeUpdater: i-0da7c542647460400: Applied config 8026a93c17c943d1d822503536cafcaad5218bb0  [LogTimer=47218ms]
+2023-06-01 05:56:51,364 INFO log_timer.py:25 -- AWSNodeProvider: Set tag ray-node-status=update-failed on ['i-0da7c542647460400']  [LogTimer=94ms]
+2023-06-01 05:56:51,364 ERR updater.py:158 -- New status: update-failed
+2023-06-01 05:56:51,365 ERR updater.py:160 -- !!!
+2023-06-01 05:56:51,365 VERR updater.py:168 -- {'message': 'SSH command failed.'}
+2023-06-01 05:56:51,365 ERR updater.py:170 -- SSH command failed.
+2023-06-01 05:56:51,365 ERR updater.py:172 -- !!!
+
+==> /tmp/ray/session_latest/logs/monitor.err <==
+ssh: connect to host 172.31.94.170 port 22: Connection refused
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+2023-06-01 05:56:52,150 INFO updater.py:312 -- SSH still not available (SSH command failed.), retrying in 5 seconds.
+
+==> /tmp/ray/session_latest/logs/monitor.log <==
+2023-06-01 05:56:55,073 INFO autoscaler.py:147 -- The autoscaler took 0.105 seconds to fetch the list of non-terminated nodes.
+2023-06-01 05:56:55,074 INFO autoscaler.py:427 -- 
+======== Autoscaler status: 2023-06-01 05:56:55.074698 ========
+Node status
+---------------------------------------------------------------
+Healthy:
+ 1 ray.head
+Pending:
+ 172.31.80.251: ray.workerGPU, waiting-for-ssh
+ 172.31.94.170: ray.head, waiting-for-ssh
+Recent failures:
+ ray.workerCPU: RayletUnexpectedlyDied (ip: 172.31.94.118)
+
+Resources
+---------------------------------------------------------------
+Usage:
+ 0.0/1.0 CPU
+ 0B/247.01MiB memory
+ 0B/123.50MiB object_store_memory
+
+Demands:
+ (no resource demands)
+2023-06-01 05:56:55,078 ERROR autoscaler.py:594 -- StandardAutoscaler: Terminating the node with id i-0da7c542647460400 and ip 172.31.94.118. (launch failed)
+2023-06-01 05:56:55,265 INFO autoscaler.py:1374 -- StandardAutoscaler: Queue 1 new nodes for launch
+2023-06-01 05:56:55,265 INFO autoscaler.py:470 -- The autoscaler took 0.297 seconds to complete the update iteration.
+2023-06-01 05:56:55,266 INFO node_launcher.py:174 -- NodeLauncher0: Got 1 nodes to launch.
+2023-06-01 05:56:55,268 ERROR monitor.py:439 -- Monitor: Execution exception. Trying again...
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p38/lib/python3.8/site-packages/ray/autoscaler/_private/monitor.py", line 403, in _run
+    self.emit_metrics(
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p38/lib/python3.8/site-packages/ray/autoscaler/_private/monitor.py", line 467, in emit_metrics
+    for node_type, count in autoscaler_summary.pending_launches:
+ValueError: too many values to unpack (expected 2)
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+2023-06-01 05:56:56,552 INFO node_provider.py:429 -- Launched 1 nodes [subnet_id=subnet-02b4b3d46fa94d688]
+2023-06-01 05:56:56,553 INFO node_provider.py:443 -- Launched instance i-0836381c1633af447 [state=pending, info=pending]
+
+==> /tmp/ray/session_latest/logs/monitor.log <==
+2023-06-01 05:56:56,553 INFO node_launcher.py:174 -- NodeLauncher0: Launching 1 nodes, type ray.workerCPU.
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+2023-06-01 05:56:57,154 VINFO command_runner.py:371 -- Running `uptime`
+2023-06-01 05:56:57,154 VVINFO command_runner.py:373 -- Full command is `ssh -tt -i ~/ray_bootstrap_key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -o ExitOnForwardFailure=yes -o ServerAliveInterval=5 -o ServerAliveCountMax=3 -o ControlMaster=auto -o ControlPath=/tmp/ray_ssh_1d41c853af/3fba465611/%C -o ControlPersist=10s -o ConnectTimeout=10s ubuntu@172.31.94.170 bash --login -c -i 'source ~/.bashrc; export OMP_NUM_THREADS=1 PYTHONWARNINGS=ignore && (uptime)'`
+
+==> /tmp/ray/session_latest/logs/monitor.err <==
+ssh: connect to host 172.31.94.170 port 22: Connection refused
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+2023-06-01 05:56:57,177 INFO updater.py:312 -- SSH still not available (SSH command failed.), retrying in 5 seconds.
+
+==> /tmp/ray/session_latest/logs/monitor.err <==
+ssh: connect to host 172.31.80.251 port 22: Connection timed out
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+2023-06-01 05:57:00,193 INFO updater.py:312 -- SSH still not available (SSH command failed.), retrying in 5 seconds.
+
+==> /tmp/ray/session_latest/logs/monitor.log <==
+2023-06-01 05:57:00,459 INFO autoscaler.py:147 -- The autoscaler took 0.142 seconds to fetch the list of non-terminated nodes.
+2023-06-01 05:57:00,463 INFO autoscaler.py:427 -- 
+======== Autoscaler status: 2023-06-01 05:57:00.462978 ========
+Node status
+---------------------------------------------------------------
+Healthy:
+ 1 ray.head
+Pending:
+ 172.31.91.73: ray.workerCPU, uninitialized
+ 172.31.80.251: ray.workerGPU, waiting-for-ssh
+ 172.31.94.170: ray.head, waiting-for-ssh
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Usage:
+ 0.0/1.0 CPU
+ 0B/247.01MiB memory
+ 0B/123.50MiB object_store_memory
+
+Demands:
+ (no resource demands)
+2023-06-01 05:57:00,467 INFO autoscaler.py:1322 -- Creating new (spawn_updater) updater thread for node i-0836381c1633af447.
+2023-06-01 05:57:00,468 INFO autoscaler.py:470 -- The autoscaler took 0.151 seconds to complete the update iteration.
+2023-06-01 05:57:00,468 INFO monitor.py:420 -- :event_summary:Removing 1 nodes of type ray.workerCPU (launch failed).
+2023-06-01 05:57:00,469 INFO monitor.py:420 -- :event_summary:Adding 1 node(s) of type ray.workerCPU.
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+2023-06-01 05:57:01,609 INFO log_timer.py:25 -- AWSNodeProvider: Set tag ray-node-status=waiting-for-ssh on ['i-0836381c1633af447']  [LogTimer=137ms]
+2023-06-01 05:57:01,610 INFO updater.py:324 -- New status: waiting-for-ssh
+2023-06-01 05:57:01,610 INFO updater.py:261 -- [1/7] Waiting for SSH to become available
+2023-06-01 05:57:01,610 INFO updater.py:266 -- Running `uptime` as a test.
+2023-06-01 05:57:01,611 INFO command_runner.py:204 -- Fetched IP: 172.31.91.73
+2023-06-01 05:57:01,611 INFO log_timer.py:25 -- NodeUpdater: i-0836381c1633af447: Got IP  [LogTimer=0ms]
+2023-06-01 05:57:01,613 VINFO command_runner.py:371 -- Running `uptime`
+2023-06-01 05:57:01,613 VVINFO command_runner.py:373 -- Full command is `ssh -tt -i ~/ray_bootstrap_key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -o ExitOnForwardFailure=yes -o ServerAliveInterval=5 -o ServerAliveCountMax=3 -o ControlMaster=auto -o ControlPath=/tmp/ray_ssh_1d41c853af/3fba465611/%C -o ControlPersist=10s -o ConnectTimeout=10s ubuntu@172.31.91.73 bash --login -c -i 'source ~/.bashrc; export OMP_NUM_THREADS=1 PYTHONWARNINGS=ignore && (uptime)'`
+2023-06-01 05:57:02,181 VINFO command_runner.py:371 -- Running `uptime`
+2023-06-01 05:57:02,182 VVINFO command_runner.py:373 -- Full command is `ssh -tt -i ~/ray_bootstrap_key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -o ExitOnForwardFailure=yes -o ServerAliveInterval=5 -o ServerAliveCountMax=3 -o ControlMaster=auto -o ControlPath=/tmp/ray_ssh_1d41c853af/3fba465611/%C -o ControlPersist=10s -o ConnectTimeout=10s ubuntu@172.31.94.170 bash --login -c -i 'source ~/.bashrc; export OMP_NUM_THREADS=1 PYTHONWARNINGS=ignore && (uptime)'`
+
+==> /tmp/ray/session_latest/logs/monitor.err <==
+Warning: Permanently added '172.31.94.170' (ECDSA) to the list of known hosts.
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+2023-06-01 05:57:05,197 VINFO command_runner.py:371 -- Running `uptime`
+2023-06-01 05:57:05,197 VVINFO command_runner.py:373 -- Full command is `ssh -tt -i ~/ray_bootstrap_key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -o ExitOnForwardFailure=yes -o ServerAliveInterval=5 -o ServerAliveCountMax=3 -o ControlMaster=auto -o ControlPath=/tmp/ray_ssh_1d41c853af/3fba465611/%C -o ControlPersist=10s -o ConnectTimeout=10s ubuntu@172.31.80.251 bash --login -c -i 'source ~/.bashrc; export OMP_NUM_THREADS=1 PYTHONWARNINGS=ignore && (uptime)'`
+
+==> /tmp/ray/session_latest/logs/monitor.log <==
+2023-06-01 05:57:05,600 INFO autoscaler.py:147 -- The autoscaler took 0.09 seconds to fetch the list of non-terminated nodes.
+2023-06-01 05:57:05,605 INFO autoscaler.py:427 -- 
+======== Autoscaler status: 2023-06-01 05:57:05.605543 ========
+Node status
+---------------------------------------------------------------
+Healthy:
+ 1 ray.head
+Pending:
+ 172.31.91.73: ray.workerCPU, waiting-for-ssh
+ 172.31.80.251: ray.workerGPU, waiting-for-ssh
+ 172.31.94.170: ray.head, waiting-for-ssh
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Usage:
+ 0.0/1.0 CPU
+ 0B/247.01MiB memory
+ 0B/123.50MiB object_store_memory
+
+Demands:
+ (no resource demands)
+2023-06-01 05:57:05,607 INFO autoscaler.py:470 -- The autoscaler took 0.097 seconds to complete the update iteration.
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+ 05:57:09 up 0 min,  1 user,  load average: 2.44, 0.58, 0.19
+
+==> /tmp/ray/session_latest/logs/monitor.err <==
+Shared connection to 172.31.94.170 closed.
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+2023-06-01 05:57:09,358 SUCC updater.py:280 -- Success.
+2023-06-01 05:57:09,358 INFO log_timer.py:25 -- NodeUpdater: i-0fe4a7398c4ae93ba: Got remote shell  [LogTimer=54447ms]
+2023-06-01 05:57:09,359 INFO updater.py:374 -- Updating cluster configuration. [hash=8026a93c17c943d1d822503536cafcaad5218bb0]
+2023-06-01 05:57:10,477 INFO log_timer.py:25 -- AWSNodeProvider: Set tag ray-node-status=syncing-files on ['i-0fe4a7398c4ae93ba']  [LogTimer=117ms]
+2023-06-01 05:57:10,477 INFO updater.py:381 -- New status: syncing-files
+2023-06-01 05:57:10,477 INFO updater.py:238 -- [2/7] Processing file mounts
+2023-06-01 05:57:10,478 INFO updater.py:255 -- [3/7] No worker file mounts to sync
+
+==> /tmp/ray/session_latest/logs/monitor.log <==
+2023-06-01 05:57:10,798 INFO autoscaler.py:147 -- The autoscaler took 0.155 seconds to fetch the list of non-terminated nodes.
+2023-06-01 05:57:10,800 INFO autoscaler.py:427 -- 
+======== Autoscaler status: 2023-06-01 05:57:10.800611 ========
+Node status
+---------------------------------------------------------------
+Healthy:
+ 1 ray.head
+Pending:
+ 172.31.91.73: ray.workerCPU, waiting-for-ssh
+ 172.31.80.251: ray.workerGPU, waiting-for-ssh
+ 172.31.94.170: ray.head, setting-up
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Usage:
+ 0.0/1.0 CPU
+ 0B/247.01MiB memory
+ 0B/123.50MiB object_store_memory
+
+Demands:
+ (no resource demands)
+2023-06-01 05:57:10,802 INFO autoscaler.py:470 -- The autoscaler took 0.159 seconds to complete the update iteration.
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+2023-06-01 05:57:11,566 INFO log_timer.py:25 -- AWSNodeProvider: Set tag ray-node-status=setting-up on ['i-0fe4a7398c4ae93ba']  [LogTimer=87ms]
+2023-06-01 05:57:11,566 INFO updater.py:392 -- New status: setting-up
+2023-06-01 05:57:11,567 INFO updater.py:433 -- [4/7] No initialization commands to run.
+2023-06-01 05:57:11,567 INFO updater.py:437 -- [5/7] Initializing command runner
+2023-06-01 05:57:11,567 INFO updater.py:448 -- [6/7] Running setup commands
+2023-06-01 05:57:11,568 INFO updater.py:470 -- (0/2) RAY_HEAD_IP=172.31.94.122 (stat $HOME/anaconda3/envs/tensorflow2_p38/ &> /dev/null && echo 'export PATH="$HOME/anaconda3/envs/tensorflow2_p38/bin:$PATH"' >> ~/.bashrc) || true
+2023-06-01 05:57:11,568 VINFO command_runner.py:371 -- Running `RAY_HEAD_IP=172.31.94.122 (stat $HOME/anaconda3/envs/tensorflow2_p38/ &> /dev/null && echo 'export PATH="$HOME/anaconda3/envs/tensorflow2_p38/bin:$PATH"' >> ~/.bashrc) || true`
+2023-06-01 05:57:11,568 VVINFO command_runner.py:373 -- Full command is `ssh -tt -i ~/ray_bootstrap_key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -o ExitOnForwardFailure=yes -o ServerAliveInterval=5 -o ServerAliveCountMax=3 -o ControlMaster=auto -o ControlPath=/tmp/ray_ssh_1d41c853af/3fba465611/%C -o ControlPersist=10s -o ConnectTimeout=120s ubuntu@172.31.94.170 bash --login -c -i 'source ~/.bashrc; export OMP_NUM_THREADS=1 PYTHONWARNINGS=ignore && (RAY_HEAD_IP=172.31.94.122 (stat $HOME/anaconda3/envs/tensorflow2_p38/ &> /dev/null && echo '"'"'export PATH="$HOME/anaconda3/envs/tensorflow2_p38/bin:$PATH"'"'"' >> ~/.bashrc) || true)'`
+
+==> /tmp/ray/session_latest/logs/monitor.err <==
+ssh: connect to host 172.31.91.73 port 22: Connection timed out
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+2023-06-01 05:57:11,640 INFO updater.py:312 -- SSH still not available (SSH command failed.), retrying in 5 seconds.
+bash: syntax error near unexpected token `('
+
+==> /tmp/ray/session_latest/logs/monitor.err <==
+Shared connection to 172.31.94.170 closed.
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+2023-06-01 05:57:12,221 INFO log_timer.py:25 -- NodeUpdater: i-0fe4a7398c4ae93ba: Setup commands failed [LogTimer=653ms]
+2023-06-01 05:57:12,221 INFO log_timer.py:25 -- NodeUpdater: i-0fe4a7398c4ae93ba: Applied config 8026a93c17c943d1d822503536cafcaad5218bb0  [LogTimer=58442ms]
+2023-06-01 05:57:13,317 INFO log_timer.py:25 -- AWSNodeProvider: Set tag ray-node-status=update-failed on ['i-0fe4a7398c4ae93ba']  [LogTimer=95ms]
+2023-06-01 05:57:13,317 ERR updater.py:158 -- New status: update-failed
+2023-06-01 05:57:13,318 ERR updater.py:160 -- !!!
+2023-06-01 05:57:13,318 VERR updater.py:168 -- {'message': '.'}
+2023-06-01 05:57:13,318 ERR updater.py:170 -- SSH command failed.
+2023-06-01 05:57:13,318 ERR updater.py:172 -- !!!
+
+==> /tmp/ray/session_latest/logs/monitor.err <==
+ssh: connect to host 172.31.80.251 port 22: Connection timed out
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+2023-06-01 05:57:15,221 INFO updater.py:312 -- SSH still not available (SSH command failed.), retrying in 5 seconds.
+
+==> /tmp/ray/session_latest/logs/monitor.log <==
+2023-06-01 05:57:15,923 INFO autoscaler.py:147 -- The autoscaler took 0.083 seconds to fetch the list of non-terminated nodes.
+2023-06-01 05:57:15,926 INFO autoscaler.py:427 -- 
+======== Autoscaler status: 2023-06-01 05:57:15.926465 ========
+Node status
+---------------------------------------------------------------
+Healthy:
+ 1 ray.head
+Pending:
+ 172.31.91.73: ray.workerCPU, waiting-for-ssh
+ 172.31.80.251: ray.workerGPU, waiting-for-ssh
+Recent failures:
+ ray.head: RayletUnexpectedlyDied (ip: 172.31.94.170)
+
+Resources
+---------------------------------------------------------------
+Usage:
+ 0.0/1.0 CPU
+ 0B/247.01MiB memory
+ 0B/123.50MiB object_store_memory
+
+Demands:
+ (no resource demands)
+2023-06-01 05:57:15,927 ERROR autoscaler.py:594 -- StandardAutoscaler: Terminating the node with id i-0fe4a7398c4ae93ba and ip 172.31.94.170. (launch failed)
+2023-06-01 05:57:16,104 INFO autoscaler.py:1374 -- StandardAutoscaler: Queue 1 new nodes for launch
+2023-06-01 05:57:16,104 INFO autoscaler.py:470 -- The autoscaler took 0.265 seconds to complete the update iteration.
+2023-06-01 05:57:16,104 INFO node_launcher.py:174 -- NodeLauncher1: Got 1 nodes to launch.
+2023-06-01 05:57:16,105 ERROR monitor.py:439 -- Monitor: Execution exception. Trying again...
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p38/lib/python3.8/site-packages/ray/autoscaler/_private/monitor.py", line 403, in _run
+    self.emit_metrics(
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p38/lib/python3.8/site-packages/ray/autoscaler/_private/monitor.py", line 467, in emit_metrics
+    for node_type, count in autoscaler_summary.pending_launches:
+ValueError: too many values to unpack (expected 2)
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+2023-06-01 05:57:16,645 VINFO command_runner.py:371 -- Running `uptime`
+2023-06-01 05:57:16,645 VVINFO command_runner.py:373 -- Full command is `ssh -tt -i ~/ray_bootstrap_key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -o ExitOnForwardFailure=yes -o ServerAliveInterval=5 -o ServerAliveCountMax=3 -o ControlMaster=auto -o ControlPath=/tmp/ray_ssh_1d41c853af/3fba465611/%C -o ControlPersist=10s -o ConnectTimeout=10s ubuntu@172.31.91.73 bash --login -c -i 'source ~/.bashrc; export OMP_NUM_THREADS=1 PYTHONWARNINGS=ignore && (uptime)'`
+2023-06-01 05:57:17,457 INFO node_provider.py:429 -- Launched 1 nodes [subnet_id=subnet-02b4b3d46fa94d688]
+2023-06-01 05:57:17,458 INFO node_provider.py:443 -- Launched instance i-01263387f94d13ead [state=pending, info=pending]
+
+==> /tmp/ray/session_latest/logs/monitor.log <==
+2023-06-01 05:57:17,458 INFO node_launcher.py:174 -- NodeLauncher1: Launching 1 nodes, type ray.head.
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+2023-06-01 05:57:20,225 VINFO command_runner.py:371 -- Running `uptime`
+2023-06-01 05:57:20,225 VVINFO command_runner.py:373 -- Full command is `ssh -tt -i ~/ray_bootstrap_key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -o ExitOnForwardFailure=yes -o ServerAliveInterval=5 -o ServerAliveCountMax=3 -o ControlMaster=auto -o ControlPath=/tmp/ray_ssh_1d41c853af/3fba465611/%C -o ControlPersist=10s -o ConnectTimeout=10s ubuntu@172.31.80.251 bash --login -c -i 'source ~/.bashrc; export OMP_NUM_THREADS=1 PYTHONWARNINGS=ignore && (uptime)'`
+
+==> /tmp/ray/session_latest/logs/monitor.err <==
+ssh: connect to host 172.31.80.251 port 22: Connection refused
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+2023-06-01 05:57:20,247 INFO updater.py:312 -- SSH still not available (SSH command failed.), retrying in 5 seconds.
+
+==> /tmp/ray/session_latest/logs/monitor.log <==
+2023-06-01 05:57:21,297 INFO autoscaler.py:147 -- The autoscaler took 0.143 seconds to fetch the list of non-terminated nodes.
+2023-06-01 05:57:21,298 INFO autoscaler.py:427 -- 
+======== Autoscaler status: 2023-06-01 05:57:21.298007 ========
+Node status
+---------------------------------------------------------------
+Healthy:
+ 1 ray.head
+Pending:
+ 172.31.86.150: ray.head, uninitialized
+ 172.31.91.73: ray.workerCPU, waiting-for-ssh
+ 172.31.80.251: ray.workerGPU, waiting-for-ssh
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Usage:
+ 0.0/1.0 CPU
+ 0B/247.01MiB memory
+ 0B/123.50MiB object_store_memory
+
+Demands:
+ (no resource demands)
+2023-06-01 05:57:21,301 INFO autoscaler.py:1322 -- Creating new (spawn_updater) updater thread for node i-01263387f94d13ead.
+2023-06-01 05:57:21,303 INFO autoscaler.py:470 -- The autoscaler took 0.149 seconds to complete the update iteration.
+2023-06-01 05:57:21,304 INFO monitor.py:420 -- :event_summary:Removing 1 nodes of type ray.head (launch failed).
+2023-06-01 05:57:21,305 INFO monitor.py:420 -- :event_summary:Adding 1 node(s) of type ray.head.
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+2023-06-01 05:57:22,450 INFO log_timer.py:25 -- AWSNodeProvider: Set tag ray-node-status=waiting-for-ssh on ['i-01263387f94d13ead']  [LogTimer=141ms]
+2023-06-01 05:57:22,450 INFO updater.py:324 -- New status: waiting-for-ssh
+2023-06-01 05:57:22,450 INFO updater.py:261 -- [1/7] Waiting for SSH to become available
+2023-06-01 05:57:22,450 INFO updater.py:266 -- Running `uptime` as a test.
+2023-06-01 05:57:22,451 INFO command_runner.py:204 -- Fetched IP: 172.31.86.150
+2023-06-01 05:57:22,451 INFO log_timer.py:25 -- NodeUpdater: i-01263387f94d13ead: Got IP  [LogTimer=0ms]
+2023-06-01 05:57:22,451 VINFO command_runner.py:371 -- Running `uptime`
+2023-06-01 05:57:22,451 VVINFO command_runner.py:373 -- Full command is `ssh -tt -i ~/ray_bootstrap_key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -o ExitOnForwardFailure=yes -o ServerAliveInterval=5 -o ServerAliveCountMax=3 -o ControlMaster=auto -o ControlPath=/tmp/ray_ssh_1d41c853af/3fba465611/%C -o ControlPersist=10s -o ConnectTimeout=10s ubuntu@172.31.86.150 bash --login -c -i 'source ~/.bashrc; export OMP_NUM_THREADS=1 PYTHONWARNINGS=ignore && (uptime)'`
+2023-06-01 05:57:25,249 VINFO command_runner.py:371 -- Running `uptime`
+2023-06-01 05:57:25,250 VVINFO command_runner.py:373 -- Full command is `ssh -tt -i ~/ray_bootstrap_key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -o ExitOnForwardFailure=yes -o ServerAliveInterval=5 -o ServerAliveCountMax=3 -o ControlMaster=auto -o ControlPath=/tmp/ray_ssh_1d41c853af/3fba465611/%C -o ControlPersist=10s -o ConnectTimeout=10s ubuntu@172.31.80.251 bash --login -c -i 'source ~/.bashrc; export OMP_NUM_THREADS=1 PYTHONWARNINGS=ignore && (uptime)'`
+
+==> /tmp/ray/session_latest/logs/monitor.err <==
+Warning: Permanently added '172.31.80.251' (ECDSA) to the list of known hosts.
+
+==> /tmp/ray/session_latest/logs/monitor.log <==
+2023-06-01 05:57:26,498 INFO autoscaler.py:147 -- The autoscaler took 0.155 seconds to fetch the list of non-terminated nodes.
+2023-06-01 05:57:26,500 INFO autoscaler.py:427 -- 
+======== Autoscaler status: 2023-06-01 05:57:26.500293 ========
+Node status
+---------------------------------------------------------------
+Healthy:
+ 1 ray.head
+Pending:
+ 172.31.86.150: ray.head, waiting-for-ssh
+ 172.31.91.73: ray.workerCPU, waiting-for-ssh
+ 172.31.80.251: ray.workerGPU, waiting-for-ssh
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Usage:
+ 0.0/1.0 CPU
+ 0B/247.01MiB memory
+ 0B/123.50MiB object_store_memory
+
+Demands:
+ (no resource demands)
+2023-06-01 05:57:26,503 INFO autoscaler.py:470 -- The autoscaler took 0.16 seconds to complete the update iteration.
+
+==> /tmp/ray/session_latest/logs/monitor.err <==
+ssh: connect to host 172.31.91.73 port 22: Connection timed out
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+2023-06-01 05:57:26,673 INFO updater.py:312 -- SSH still not available (SSH command failed.), retrying in 5 seconds.
+
+==> /tmp/ray/session_latest/logs/monitor.log <==
+2023-06-01 05:57:31,613 INFO autoscaler.py:147 -- The autoscaler took 0.071 seconds to fetch the list of non-terminated nodes.
+2023-06-01 05:57:31,617 INFO autoscaler.py:427 -- 
+======== Autoscaler status: 2023-06-01 05:57:31.617619 ========
+Node status
+---------------------------------------------------------------
+Healthy:
+ 1 ray.head
+Pending:
+ 172.31.86.150: ray.head, waiting-for-ssh
+ 172.31.91.73: ray.workerCPU, waiting-for-ssh
+ 172.31.80.251: ray.workerGPU, waiting-for-ssh
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Usage:
+ 0.0/1.0 CPU
+ 0B/247.01MiB memory
+ 0B/123.50MiB object_store_memory
+
+Demands:
+ (no resource demands)
+2023-06-01 05:57:31,619 INFO autoscaler.py:470 -- The autoscaler took 0.078 seconds to complete the update iteration.
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+2023-06-01 05:57:31,677 VINFO command_runner.py:371 -- Running `uptime`
+2023-06-01 05:57:31,677 VVINFO command_runner.py:373 -- Full command is `ssh -tt -i ~/ray_bootstrap_key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -o ExitOnForwardFailure=yes -o ServerAliveInterval=5 -o ServerAliveCountMax=3 -o ControlMaster=auto -o ControlPath=/tmp/ray_ssh_1d41c853af/3fba465611/%C -o ControlPersist=10s -o ConnectTimeout=10s ubuntu@172.31.91.73 bash --login -c -i 'source ~/.bashrc; export OMP_NUM_THREADS=1 PYTHONWARNINGS=ignore && (uptime)'`
+
+==> /tmp/ray/session_latest/logs/monitor.err <==
+Warning: Permanently added '172.31.91.73' (ECDSA) to the list of known hosts.
+ssh: connect to host 172.31.86.150 port 22: Connection timed out
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+2023-06-01 05:57:32,490 INFO updater.py:312 -- SSH still not available (SSH command failed.), retrying in 5 seconds.
+ 05:57:33 up 0 min,  1 user,  load average: 3.38, 0.81, 0.27
+
+==> /tmp/ray/session_latest/logs/monitor.err <==
+Shared connection to 172.31.80.251 closed.
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+2023-06-01 05:57:33,532 SUCC updater.py:280 -- Success.
+2023-06-01 05:57:33,532 INFO log_timer.py:25 -- NodeUpdater: i-032cf39286f6b9137: Got remote shell  [LogTimer=73418ms]
+2023-06-01 05:57:33,532 INFO updater.py:374 -- Updating cluster configuration. [hash=8026a93c17c943d1d822503536cafcaad5218bb0]
+2023-06-01 05:57:34,647 INFO log_timer.py:25 -- AWSNodeProvider: Set tag ray-node-status=syncing-files on ['i-032cf39286f6b9137']  [LogTimer=114ms]
+2023-06-01 05:57:34,648 INFO updater.py:381 -- New status: syncing-files
+2023-06-01 05:57:34,648 INFO updater.py:238 -- [2/7] Processing file mounts
+2023-06-01 05:57:34,648 INFO updater.py:255 -- [3/7] No worker file mounts to sync
+2023-06-01 05:57:35,734 INFO log_timer.py:25 -- AWSNodeProvider: Set tag ray-node-status=setting-up on ['i-032cf39286f6b9137']  [LogTimer=86ms]
+2023-06-01 05:57:35,735 INFO updater.py:392 -- New status: setting-up
+2023-06-01 05:57:35,735 INFO updater.py:433 -- [4/7] No initialization commands to run.
+2023-06-01 05:57:35,735 INFO updater.py:437 -- [5/7] Initializing command runner
+2023-06-01 05:57:35,736 INFO updater.py:448 -- [6/7] Running setup commands
+2023-06-01 05:57:35,736 INFO updater.py:470 -- (0/2) RAY_HEAD_IP=172.31.94.122 (stat $HOME/anaconda3/envs/tensorflow2_p38/ &> /dev/null && echo 'export PATH="$HOME/anaconda3/envs/tensorflow2_p38/bin:$PATH"' >> ~/.bashrc) || true
+2023-06-01 05:57:35,736 VINFO command_runner.py:371 -- Running `RAY_HEAD_IP=172.31.94.122 (stat $HOME/anaconda3/envs/tensorflow2_p38/ &> /dev/null && echo 'export PATH="$HOME/anaconda3/envs/tensorflow2_p38/bin:$PATH"' >> ~/.bashrc) || true`
+2023-06-01 05:57:35,741 VVINFO command_runner.py:373 -- Full command is `ssh -tt -i ~/ray_bootstrap_key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -o ExitOnForwardFailure=yes -o ServerAliveInterval=5 -o ServerAliveCountMax=3 -o ControlMaster=auto -o ControlPath=/tmp/ray_ssh_1d41c853af/3fba465611/%C -o ControlPersist=10s -o ConnectTimeout=120s ubuntu@172.31.80.251 bash --login -c -i 'source ~/.bashrc; export OMP_NUM_THREADS=1 PYTHONWARNINGS=ignore && (RAY_HEAD_IP=172.31.94.122 (stat $HOME/anaconda3/envs/tensorflow2_p38/ &> /dev/null && echo '"'"'export PATH="$HOME/anaconda3/envs/tensorflow2_p38/bin:$PATH"'"'"' >> ~/.bashrc) || true)'`
+bash: syntax error near unexpected token `('
+
+==> /tmp/ray/session_latest/logs/monitor.err <==
+Shared connection to 172.31.80.251 closed.
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+2023-06-01 05:57:36,341 INFO log_timer.py:25 -- NodeUpdater: i-032cf39286f6b9137: Setup commands failed [LogTimer=604ms]
+2023-06-01 05:57:36,341 INFO log_timer.py:25 -- NodeUpdater: i-032cf39286f6b9137: Applied config 8026a93c17c943d1d822503536cafcaad5218bb0  [LogTimer=77359ms]
+
+==> /tmp/ray/session_latest/logs/monitor.log <==
+2023-06-01 05:57:36,780 INFO autoscaler.py:147 -- The autoscaler took 0.115 seconds to fetch the list of non-terminated nodes.
+2023-06-01 05:57:36,785 INFO autoscaler.py:427 -- 
+======== Autoscaler status: 2023-06-01 05:57:36.785622 ========
+Node status
+---------------------------------------------------------------
+Healthy:
+ 1 ray.head
+Pending:
+ 172.31.86.150: ray.head, waiting-for-ssh
+ 172.31.91.73: ray.workerCPU, waiting-for-ssh
+Recent failures:
+ ray.workerGPU: RayletUnexpectedlyDied (ip: 172.31.80.251)
+
+Resources
+---------------------------------------------------------------
+Usage:
+ 0.0/1.0 CPU
+ 0B/247.01MiB memory
+ 0B/123.50MiB object_store_memory
+
+Demands:
+ (no resource demands)
+2023-06-01 05:57:36,787 INFO autoscaler.py:470 -- The autoscaler took 0.121 seconds to complete the update iteration.
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+2023-06-01 05:57:37,428 INFO log_timer.py:25 -- AWSNodeProvider: Set tag ray-node-status=update-failed on ['i-032cf39286f6b9137']  [LogTimer=86ms]
+2023-06-01 05:57:37,428 ERR updater.py:158 -- New status: update-failed
+2023-06-01 05:57:37,429 ERR updater.py:160 -- !!!
+2023-06-01 05:57:37,429 VERR updater.py:168 -- {'message': 'SSH command failed.'}
+2023-06-01 05:57:37,429 ERR updater.py:170 -- SSH command failed.
+2023-06-01 05:57:37,429 ERR updater.py:172 -- !!!
+2023-06-01 05:57:37,493 VINFO command_runner.py:371 -- Running `uptime`
+2023-06-01 05:57:37,493 VVINFO command_runner.py:373 -- Full command is `ssh -tt -i ~/ray_bootstrap_key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -o ExitOnForwardFailure=yes -o ServerAliveInterval=5 -o ServerAliveCountMax=3 -o ControlMaster=auto -o ControlPath=/tmp/ray_ssh_1d41c853af/3fba465611/%C -o ControlPersist=10s -o ConnectTimeout=10s ubuntu@172.31.86.150 bash --login -c -i 'source ~/.bashrc; export OMP_NUM_THREADS=1 PYTHONWARNINGS=ignore && (uptime)'`
+ 05:57:39 up 0 min,  1 user,  load average: 1.27, 0.29, 0.10
+
+==> /tmp/ray/session_latest/logs/monitor.err <==
+Shared connection to 172.31.91.73 closed.
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+2023-06-01 05:57:39,509 SUCC updater.py:280 -- Success.
+2023-06-01 05:57:39,510 INFO log_timer.py:25 -- NodeUpdater: i-0836381c1633af447: Got remote shell  [LogTimer=37899ms]
+2023-06-01 05:57:39,510 INFO updater.py:374 -- Updating cluster configuration. [hash=8026a93c17c943d1d822503536cafcaad5218bb0]
+2023-06-01 05:57:40,612 INFO log_timer.py:25 -- AWSNodeProvider: Set tag ray-node-status=syncing-files on ['i-0836381c1633af447']  [LogTimer=101ms]
+2023-06-01 05:57:40,613 INFO updater.py:381 -- New status: syncing-files
+2023-06-01 05:57:40,613 INFO updater.py:238 -- [2/7] Processing file mounts
+2023-06-01 05:57:40,613 INFO updater.py:255 -- [3/7] No worker file mounts to sync
+r2023-06-01 05:57:41,710        INFO log_timer.py:25 -- AWSNodeProvider: Set tag ray-node-status=setting-up on ['i-0836381c1633af447']  [LogTimer=96ms]
+2023-06-01 05:57:41,711 INFO updater.py:392 -- New status: setting-up
+2023-06-01 05:57:41,711 INFO updater.py:433 -- [4/7] No initialization commands to run.
+2023-06-01 05:57:41,712 INFO updater.py:437 -- [5/7] Initializing command runner
+2023-06-01 05:57:41,712 INFO updater.py:448 -- [6/7] Running setup commands
+2023-06-01 05:57:41,712 INFO updater.py:470 -- (0/2) RAY_HEAD_IP=172.31.94.122 (stat $HOME/anaconda3/envs/tensorflow2_p38/ &> /dev/null && echo 'export PATH="$HOME/anaconda3/envs/tensorflow2_p38/bin:$PATH"' >> ~/.bashrc) || true
+2023-06-01 05:57:41,713 VINFO command_runner.py:371 -- Running `RAY_HEAD_IP=172.31.94.122 (stat $HOME/anaconda3/envs/tensorflow2_p38/ &> /dev/null && echo 'export PATH="$HOME/anaconda3/envs/tensorflow2_p38/bin:$PATH"' >> ~/.bashrc) || true`
+2023-06-01 05:57:41,713 VVINFO command_runner.py:373 -- Full command is `ssh -tt -i ~/ray_bootstrap_key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -o ExitOnForwardFailure=yes -o ServerAliveInterval=5 -o ServerAliveCountMax=3 -o ControlMaster=auto -o ControlPath=/tmp/ray_ssh_1d41c853af/3fba465611/%C -o ControlPersist=10s -o ConnectTimeout=120s ubuntu@172.31.91.73 bash --login -c -i 'source ~/.bashrc; export OMP_NUM_THREADS=1 PYTHONWARNINGS=ignore && (RAY_HEAD_IP=172.31.94.122 (stat $HOME/anaconda3/envs/tensorflow2_p38/ &> /dev/null && echo '"'"'export PATH="$HOME/anaconda3/envs/tensorflow2_p38/bin:$PATH"'"'"' >> ~/.bashrc) || true)'`
+ 
+==> /tmp/ray/session_latest/logs/monitor.log <==
+2023-06-01 05:57:41,983 INFO autoscaler.py:147 -- The autoscaler took 0.155 seconds to fetch the list of non-terminated nodes.
+2023-06-01 05:57:41,989 INFO autoscaler.py:427 -- 
+======== Autoscaler status: 2023-06-01 05:57:41.989707 ========
+Node status
+---------------------------------------------------------------
+Healthy:
+ 1 ray.head
+Pending:
+ 172.31.86.150: ray.head, waiting-for-ssh
+ 172.31.91.73: ray.workerCPU, setting-up
+Recent failures:
+ ray.workerGPU: RayletUnexpectedlyDied (ip: 172.31.80.251)
+
+Resources
+---------------------------------------------------------------
+Usage:
+ 0.0/1.0 CPU
+ 0B/247.01MiB memory
+ 0B/123.50MiB object_store_memory
+
+Demands:
+ (no resource demands)
+2023-06-01 05:57:41,991 ERROR autoscaler.py:594 -- StandardAutoscaler: Terminating the node with id i-032cf39286f6b9137 and ip 172.31.80.251. (launch failed)
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+bash: syntax error near unexpected token `('
+
+==> /tmp/ray/session_latest/logs/monitor.err <==
+Shared connection to 172.31.91.73 closed.
+
+==> /tmp/ray/session_latest/logs/monitor.out <==
+2023-06-01 05:57:42,049 INFO log_timer.py:25 -- NodeUpdater: i-0836381c1633af447: Setup commands failed [LogTimer=337ms]
+2023-06-01 05:57:42,049 INFO log_timer.py:25 -- NodeUpdater: i-0836381c1633af447: Applied config 8026a93c17c943d1d822503536cafcaad5218bb0  [LogTimer=41582ms]
+
+==> /tmp/ray/session_latest/logs/monitor.log <==
+2023-06-01 05:57:42,183 INFO autoscaler.py:1374 -- StandardAutoscaler: Queue 1 new nodes for launch
+2023-06-01 05:57:42,184 INFO autoscaler.py:470 -- The autoscaler took 0.355 seconds to complete the update iteration.
+2023-06-01 05:57:42,184 INFO node_launcher.py:174 -- NodeLauncher0: Got 1 nodes to launch.
+2023-06-01 05:57:42,184 ERROR monitor.py:439 -- Monitor: Execution exception. Trying again...
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p38/lib/python3.8/site-packages/ray/autoscaler/_private/monitor.py", line 403, in _run
+    self.emit_metrics(
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p38/lib/python3.8/site-packages/ray/autoscaler/_private/monitor.py", line 467, in emit_metrics
+    for node_type, count in autoscaler_summary.pending_launches:
+ValueError: too many values to unpack (expected 2)
+^C
+Shared connection to 34.205.76.251 closed.
+Error: Command failed:
+
+  ssh -tt -i /home/sxnity/Downloads/urban-sadness2.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -o ExitOnForwardFailure=yes -o ServerAliveInterval=5 -o ServerAliveCountMax=3 -o ControlMaster=auto -o ControlPath=/tmp/ray_ssh_111365513a/3fba465611/%C -o ControlPersist=10s -o ConnectTimeout=120s ubuntu@34.205.76.251 bash --login -c -i 'source ~/.bashrc; export OMP_NUM_THREADS=1 PYTHONWARNINGS=ignore && (tail -n 100 -f /tmp/ray/session_latest/logs/monitor*)'

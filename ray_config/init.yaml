@@ -1,24 +1,33 @@
 cluster_name: immo-ray
-max_workers: 2
-upscaling_speed: 0.0
-idle_timeout_minutes: 5
-#docker:
-#  docker
+max_workers: 3
+upscaling_speed: 1.0
+idle_timeout_minutes: 30
 provider:
   type: aws
   region: us-east-1
   availability_zone: us-east-1a,us-east-1b,us-east-1c
   cache_stopped_nodes: False
   security_group:
-    GroupName: inbound-all-ports
+    GroupName: inbound-all-ports2
+    IpPermissions:
+      - IpProtocol: tcp
+        IpRanges:
+          - CidrIp: 
+              0.0.0.0/0
+        FromPort:
+          22
+        ToPort:
+          22
 auth:
   ssh_user: ubuntu
-  ssh_private_key: /home/sxnity/Downloads/urban-sadness.pem
+  ssh_private_key: /home/sxnity/Downloads/urban-sadness2.pem
 available_node_types:
+  
   ray.head:
     node_config:
-      InstanceType: c5.large
-      KeyName: urban-sadness
+      InstanceType: t2.micro
+      ImageId: ami-053b0d53c279acc90
+      KeyName: urban-sadness2
       MinCount: 1
       MaxCount: 2
       BlockDeviceMappings:
@@ -27,13 +36,34 @@ available_node_types:
             VolumeSize: 140
             DeleteOnTermination: True
     resources:
-      CPU: 3
+      label_type: 0
     min_workers: 1
-    max_workers: 1
-  ray.worker1:
+    max_workers: 2
+  
+  ray.workerCPU:
     node_config:
-      InstanceType: c5.large
-      KeyName: urban-sadness
+      InstanceType: t3.micro
+      ImageId: ami-053b0d53c279acc90
+      KeyName: urban-sadness2
+      MinCount: 1
+      MaxCount: 2
+      #SecurityGroupIds:
+      #  - sg-0bccbfb7769ae8947
+      BlockDeviceMappings:
+        - DeviceName: /dev/sda1
+          Ebs:
+            VolumeSize: 140
+            DeleteOnTermination: True
+    resources:
+      label_type: 1 
+    min_workers: 1
+    max_workers: 2
+  
+  ray.workerGPU:
+    node_config:
+      InstanceType: t2.small
+      ImageId: ami-053b0d53c279acc90
+      KeyName: urban-sadness2
       MinCount: 1
       MaxCount: 2
       BlockDeviceMappings:
@@ -42,7 +72,12 @@ available_node_types:
             VolumeSize: 140
             DeleteOnTermination: True
     resources:
-      CPU: 3
+      label_type: 2 
     min_workers: 1
-    max_workers: 1
+    max_workers: 2
+
 head_node_type: ray.head
+
+setup_commands:
+  - sudo apt-get -y update && sudo apt-get -y install python3-pip
+  - pip install ray
