@@ -1,4 +1,5 @@
 import os
+
 import cv2
 import ray
 import numpy as np
@@ -7,14 +8,14 @@ from dotenv import load_dotenv
 load_dotenv()
 project_dir = os.environ["WORK_DIRECTORY"]
 
-
 @ray.remote
 class VideoProcessor:
 
-    def __init__(self, video):
-        """pass relative path to video in tmp folder otherwise cause implicit errors"""
+    def __init__(self, video, client):
+        
+        self.workdir = os.getcwd()
+        self.client = client
         self.video = video
-        self.output_video = f"{project_dir}/output/{self.video}"
 
     @staticmethod
     def _draw_grid(frame, grid_shape=(25, 25), color=(0, 255, 0), thickness=1) -> None:
@@ -31,7 +32,9 @@ class VideoProcessor:
             cv2.line(frame, (0, y), (w, y), color=color, thickness=thickness)
 
     def create_grid_video(self):
-        cap = cv2.VideoCapture(f"{project_dir}/tmp/{self.video}")
+
+        self.client.download_file(self.video, remote=True)
+        cap = cv2.VideoCapture(os.path.join(self.workdir, self.video))
         fps = cap.get(cv2.CAP_PROP_FPS)
         frames = cap.get(cv2.CAP_PROP_FRAME_COUNT)
         video_height = round(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
@@ -43,8 +46,10 @@ class VideoProcessor:
         print(f"fps: {fps}")
         print(f"frames: {frames}")
 
+        if not os.path.exists(f"{self.workdir}/output"):
+            os.mkdir(f"{self.workdir}/output")
         output_video = cv2.VideoWriter(
-            filename=self.output_video,
+            filename=f"{self.workdir}/output/{self.video.rsplit('/', maxsplit=1)[-1]}",
             fourcc=cv2.VideoWriter_fourcc(*'mp4v'),
             fps=fps,
             frameSize=(video_width, video_height))
@@ -58,6 +63,8 @@ class VideoProcessor:
 
         cap.release()
         output_video.release()
+        print(f"upload {self.video} to s3")
+        self.client.upload_file(f"{self.workdir}/output/{self.video.rsplit('/', maxsplit=1)[-1]}")
         print(f"finish processing: {self.video}")
 
     def make_gray(self):
